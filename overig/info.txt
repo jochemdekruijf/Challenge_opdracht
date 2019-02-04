@@ -1,0 +1,17 @@
+echo "# Challenge_opdracht" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/jochemdekruijf/Challenge_opdracht.git
+git push -u origin master
+
+
+push
+
+git remote add origin https://github.com/jochemdekruijf/Challenge_opdracht.git
+git push -u origin master
+
+
+
+
+https://www.w3schools.com/w3css/w3css_templates.asp   - Modal Restaurant Template
