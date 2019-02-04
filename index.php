@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>Pizza Reastaurant</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -27,7 +27,7 @@ body, html {height: 100%}
   </div>
   <div class="w3-display-bottomleft w3-container">
     <p class="w3-xlarge">Maandag - Vrijdag 9-23 </p>
-    <p class="w3-large">Harlem, New York</p>
+    <p class="w3-large">41°01'44.6"N 14°23'27.3"E</p>
     
   </div>
 </div>
