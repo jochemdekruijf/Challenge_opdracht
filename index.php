@@ -26,9 +26,9 @@ body, html {height: 100%}
     <p><button onclick="document.getElementById('contact').style.display='block'" class="w3-button w3-black">contact</button></p>
   </div>
   <div class="w3-display-bottomleft w3-container">
-    <p class="w3-xlarge">monday - friday 10-23 | saturday 14-02</p>
-    <p class="w3-large">42 village St, New York</p>
-    <p>powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    <p class="w3-xlarge">Maandag - Vrijdag 9-23 </p>
+    <p class="w3-large">Harlem, New York</p>
+    
   </div>
 </div>
 
