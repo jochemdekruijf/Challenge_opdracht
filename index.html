@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
- <script type="text/javascript" src="pizzaCalc.js"></script>
+ <script type="text/javascript" src="js/pizzaCalc.js"></script>
 <style>
 body,h1,h5 {font-family: "Raleway", sans-serif}
 body, html {height: 100%}
@@ -43,7 +43,7 @@ body, html {height: 100%}
     <div class="w3-container">
 
        <h1>Pizza's</h1>
-
+       
       <ul id="list_CV"> 
         <h3>Kaas / groente </h3>
         <script>showPizzaCV();
@@ -58,12 +58,13 @@ body, html {height: 100%}
               }
               if (target.tagName === 'LI'){
                    // Check if the element is a LI
-                  orderList.push(target.id); 
-                  console.log(orderList);
+                  //orderList.push(target.id); 
+                  dataOrder.push(target.id);
+                  console.log(dataOrder);
                   
               }
           });
-    
+             
 
       </script>
       </ul>
@@ -81,8 +82,9 @@ body, html {height: 100%}
               }
               if (target.tagName === 'LI'){
                    // Check if the element is a LI
-                  orderList.push(target.id); 
-                  console.log(orderList);
+                  //orderList.push(target.id);
+                  dataOrder.push(target.id);
+                  console.log(dataOrder);
                   
               }
           });
@@ -103,8 +105,9 @@ body, html {height: 100%}
               }
               if (target.tagName === 'LI'){
                    // Check if the element is a LI
-                  orderList.push(target.id); 
-                  console.log(orderList);
+                  //orderList.push(target.id);
+                  dataOrder.push(target.id); 
+                  console.log(dataOrder);
                  
               }
           });
@@ -124,9 +127,12 @@ body, html {height: 100%}
       <span onclick="document.getElementById('contact').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
       <h1>bestelling</h1>
     </div>
-    <div class="w3-container">
-        <ul id="list_order"> 
-        </ul>  
+    <div class="w3-container"> 
+        <ul id="orderList"> 
+         <script> showOrder();
+
+
+       </script>
 
     <!--   <p>Reserve a table, ask for today's special or just send us a message:</p>
       <form action="/action_page.php" target="_blank">
@@ -136,6 +142,7 @@ body, html {height: 100%}
         <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
         <p><button class="w3-button" type="submit">SEND MESSAGE</button></p>
       </form> -->
+       </ul>  
     </div>
   </div>
 </div>
