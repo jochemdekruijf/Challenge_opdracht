@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
- <script type="text/javascript" src="js/pizzaCalc.js"></script>
+<script type="text/javascript" src="js/pizzaCalc.js"></script>
 <style>
 body,h1,h5 {font-family: "Raleway", sans-serif}
 body, html {height: 100%}
@@ -24,6 +24,9 @@ body, html {height: 100%}
   </div>
   <div class="w3-display-topleft w3-container w3-xlarge">
     <p><button onclick="document.getElementById('menu').style.display='block'" class="w3-button w3-black">menu</button></p>
+
+    <p><button onclick="document.getElementById('createOwn').style.display='block'" class="w3-button w3-black">creëer eigen</button></p>
+  
     <p><button onclick="document.getElementById('contact').style.display='block'" class="w3-button w3-black">Bestelling</button></p>
   </div>
   <div class="w3-display-bottomleft w3-container">
@@ -48,22 +51,22 @@ body, html {height: 100%}
         <h3>Kaas / groente </h3>
         <script>showPizzaCV();
 
-         var ul = document.getElementById('list_CV'); // Parent
+         // var ul = document.getElementById('list_CV'); // Parent
 
-          ul.addEventListener('click', function (e) {
-              var target = e.target; // Clicked element
-              while (target && target.parentNode !== ul) {
-                  target = target.parentNode; // If the clicked element isn't a direct child
-                  if(!target) { return; } // If element doesn't exist
-              }
-              if (target.tagName === 'LI'){
-                   // Check if the element is a LI
-                  //orderList.push(target.id); 
-                  dataOrder.push(target.id);
-                  console.log(dataOrder);
+         //  ul.addEventListener('click', function (e) {
+         //      var target = e.target; // Clicked element
+         //      while (target && target.parentNode !== ul) {
+         //          target = target.parentNode; // If the clicked element isn't a direct child
+         //          if(!target) { return; } // If element doesn't exist
+         //      }
+         //      if (target.tagName === 'LI'){
+         //           // Check if the element is a LI
+         //          //orderList.push(target.id); 
+         //          dataOrder.push(target.id);
+         //          console.log(dataOrder);
                   
-              }
-          });
+         //      }
+         //  });
              
 
       </script>
@@ -72,22 +75,22 @@ body, html {height: 100%}
       <ul id="list_M">
        <h3>Vlees</h3>
        <script>showPizzaM();
-           var ul_1 = document.getElementById('list_M'); // Parent
+          //  var ul_1 = document.getElementById('list_M'); // Parent
 
-          ul_1.addEventListener('click', function (e) {
-              var target = e.target; // Clicked element
-              while (target && target.parentNode !== ul_1) {
-                  target = target.parentNode; // If the clicked element isn't a direct child
-                  if(!target) { return; } // If element doesn't exist
-              }
-              if (target.tagName === 'LI'){
-                   // Check if the element is a LI
-                  //orderList.push(target.id);
-                  dataOrder.push(target.id);
-                  console.log(dataOrder);
+          // ul_1.addEventListener('click', function (e) {
+          //     var target = e.target; // Clicked element
+          //     while (target && target.parentNode !== ul_1) {
+          //         target = target.parentNode; // If the clicked element isn't a direct child
+          //         if(!target) { return; } // If element doesn't exist
+          //     }
+          //     if (target.tagName === 'LI'){
+          //          // Check if the element is a LI
+          //         //orderList.push(target.id);
+          //         dataOrder.push(target.id);
+          //         console.log(dataOrder);
                   
-              }
-          });
+          //     }
+          // });
     </script>
       </ul>
 
@@ -95,22 +98,22 @@ body, html {height: 100%}
        <h3>Vis</h3>
        <script>showPizzaF();
 
-                 var ul_2 = document.getElementById('list_F'); // Parent
+          //        var ul_2 = document.getElementById('list_F'); // Parent
 
-          ul_2.addEventListener('click', function (e) {
-              var target = e.target; // Clicked element
-              while (target && target.parentNode !== ul_2) {
-                  target = target.parentNode; // If the clicked element isn't a direct child
-                  if(!target) { return; } // If element doesn't exist
-              }
-              if (target.tagName === 'LI'){
-                   // Check if the element is a LI
-                  //orderList.push(target.id);
-                  dataOrder.push(target.id); 
-                  console.log(dataOrder);
+          // ul_2.addEventListener('click', function (e) {
+          //     var target = e.target; // Clicked element
+          //     while (target && target.parentNode !== ul_2) {
+          //         target = target.parentNode; // If the clicked element isn't a direct child
+          //         if(!target) { return; } // If element doesn't exist
+          //     }
+          //     if (target.tagName === 'LI'){
+          //          // Check if the element is a LI
+          //         //orderList.push(target.id);
+          //         dataOrder.push(target.id); 
+          //         console.log(dataOrder);
                  
-              }
-          });
+          //     }
+          // });
 
      </script>
       </ul>
@@ -120,7 +123,43 @@ body, html {height: 100%}
   </div>
 </div>
 
-<!-- Contact Modal -->
+<div id="createOwn" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-black">
+      <span onclick="document.getElementById('createOwn').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+      <h1>creëer eigen</h1>
+    </div>
+    <div class="w3-container"> 
+
+    <img src="images/createOwn_imgs/bodem.jpeg" id="bodem" alt="pizza_bodem"  style= "width: 300px; height: 300px; padding: 10px;" >
+
+    <img src="images/createOwn_imgs/bodemS.jpeg" id="bodemS" alt="pizza_bodem_saus"  style= "display:none; width: 300px; height: 300px; padding: 10px;">
+
+       <h4 id="toppings">gekozen beleg: <script> displayToppings(); </script></h4>
+
+       <h3 id="price_display"><script> displayPrice(); </script></h3>
+
+    <ul> <h4>Sauzen</h4>
+     <button id="tomatoS" onclick="addSaus();">tomatensaus</button>
+    </ul>
+    <ul> <h4>Beleg</h4>
+      
+      <button id="cheese" onclick="addCheese();">Kaas</button>
+      <button id="mushroom" onclick="addMushroom();">Champignon</button>
+      <button id="salami" onclick="addSalami();" >Salami</button>
+      <button id="pineapple" onclick="addPineapple();">Ananas</button>
+      <button id="ham" onclick="addHam();">Ham</button> 
+    </ul>
+       
+     <button id="empty" onclick="empty();">Nieuw</button>   
+     <button id="confirm" onclick="order();">Afronden</button>  
+
+    </div>
+  </div>
+</div>
+
+
+
 <div id="contact" class="w3-modal">
   <div class="w3-modal-content w3-animate-zoom">
     <div class="w3-container w3-black">
@@ -128,24 +167,17 @@ body, html {height: 100%}
       <h1>bestelling</h1>
     </div>
     <div class="w3-container"> 
-        <ul id="orderList"> 
-         <script> showOrder();
+        <ul id="orderlist">
+         <script type="text/javascript">
+          displayPrice();
+          showOrder();
+         </script> 
+         </ul>
+        <button id="bank" onclick="payBank();">via bank</button>
+        <button id="cash" onclick="payCash();">contant </button>
 
-
-       </script>
-
-    <!--   <p>Reserve a table, ask for today's special or just send us a message:</p>
-      <form action="/action_page.php" target="_blank">
-        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
-        <p><input class="w3-input w3-padding-16 w3-border" type="number" placeholder="How many people" required name="People"></p>
-        <p><input class="w3-input w3-padding-16 w3-border" type="datetime-local" placeholder="Date and time" required name="date" value="2017-11-16T20:00"></p>
-        <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
-        <p><button class="w3-button" type="submit">SEND MESSAGE</button></p>
-      </form> -->
-       </ul>  
     </div>
   </div>
 </div>
-
 </body>
 </html>
