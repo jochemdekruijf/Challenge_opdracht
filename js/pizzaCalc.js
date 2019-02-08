@@ -255,10 +255,11 @@ var emptied = false;
          
           for (var i = base ; i < added_toppings.length; i++) {
 
-          var Li = document.createElement("LI");        // Create a <li> element
+          var Li = document.createElement("li");        // Create a <li> element
 
-          var added_top = document.createTextNode(added_toppings[i]);     // Create a text node
+          var added_top = document.createTextNode(added_toppings[i] + ",");     // Create a text node
           //Li.setAttribute("id", "F"+i);
+          Li.setAttribute('style', 'display:inline-block;');
           Li.appendChild(added_top);                            // Append the text to <li>   
           document.getElementById("toppings").appendChild(Li);
           }
@@ -306,6 +307,28 @@ var emptied = false;
       document.getElementById("bank").style.display = "none";
       displayPrice();
       }
+
+     //  function  deliver() {
+        
+     //  if (discount === false && ordered === true) {
+
+     //    discount = true;
+     //    globalPrice = globalPrice + 3;
+     //    document.getElementById('cash').style.display = 'none';
+     //    displayPrice();
+
+     //    }
+     //    document.getElementById('cash').style.display = 'none';
+     //    displayPrice();
+       
+     //  }
+
+
+     // function  takeAway() {
+        
+     //  document.getElementById("bank").style.display = "none";
+     //  displayPrice();
+     //  }
         
  
 

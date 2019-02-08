@@ -51,22 +51,7 @@ body, html {height: 100%}
         <h3>Kaas / groente </h3>
         <script>showPizzaCV();
 
-         // var ul = document.getElementById('list_CV'); // Parent
 
-         //  ul.addEventListener('click', function (e) {
-         //      var target = e.target; // Clicked element
-         //      while (target && target.parentNode !== ul) {
-         //          target = target.parentNode; // If the clicked element isn't a direct child
-         //          if(!target) { return; } // If element doesn't exist
-         //      }
-         //      if (target.tagName === 'LI'){
-         //           // Check if the element is a LI
-         //          //orderList.push(target.id); 
-         //          dataOrder.push(target.id);
-         //          console.log(dataOrder);
-                  
-         //      }
-         //  });
              
 
       </script>
@@ -75,45 +60,13 @@ body, html {height: 100%}
       <ul id="list_M">
        <h3>Vlees</h3>
        <script>showPizzaM();
-          //  var ul_1 = document.getElementById('list_M'); // Parent
 
-          // ul_1.addEventListener('click', function (e) {
-          //     var target = e.target; // Clicked element
-          //     while (target && target.parentNode !== ul_1) {
-          //         target = target.parentNode; // If the clicked element isn't a direct child
-          //         if(!target) { return; } // If element doesn't exist
-          //     }
-          //     if (target.tagName === 'LI'){
-          //          // Check if the element is a LI
-          //         //orderList.push(target.id);
-          //         dataOrder.push(target.id);
-          //         console.log(dataOrder);
-                  
-          //     }
-          // });
     </script>
       </ul>
 
       <ul id="list_F">
        <h3>Vis</h3>
        <script>showPizzaF();
-
-          //        var ul_2 = document.getElementById('list_F'); // Parent
-
-          // ul_2.addEventListener('click', function (e) {
-          //     var target = e.target; // Clicked element
-          //     while (target && target.parentNode !== ul_2) {
-          //         target = target.parentNode; // If the clicked element isn't a direct child
-          //         if(!target) { return; } // If element doesn't exist
-          //     }
-          //     if (target.tagName === 'LI'){
-          //          // Check if the element is a LI
-          //         //orderList.push(target.id);
-          //         dataOrder.push(target.id); 
-          //         console.log(dataOrder);
-                 
-          //     }
-          // });
 
      </script>
       </ul>
@@ -144,11 +97,11 @@ body, html {height: 100%}
     </ul>
     <ul> <h4>Beleg</h4>
       
-      <button id="cheese" onclick="addCheese();">Kaas</button>
-      <button id="mushroom" onclick="addMushroom();">Champignon</button>
-      <button id="salami" onclick="addSalami();" >Salami</button>
-      <button id="pineapple" onclick="addPineapple();">Ananas</button>
-      <button id="ham" onclick="addHam();">Ham</button> 
+      <button id="cheese" onclick="addCheese();">Kaas- €0.75</button>
+      <button id="mushroom" onclick="addMushroom();">Champignon-  €0.75</button>
+      <button id="salami" onclick="addSalami();" >Salami- €0.50</button>
+      <button id="pineapple" onclick="addPineapple();">Ananas- €1</button>
+      <button id="ham" onclick="addHam();">Ham- €0.50</button> 
     </ul>
        
      <button id="empty" onclick="empty();">Nieuw</button>   
@@ -175,6 +128,8 @@ body, html {height: 100%}
          </ul>
         <button id="bank" onclick="payBank();">via bank</button>
         <button id="cash" onclick="payCash();">contant </button>
+        <button id="deliver" onclick="deliver();">Thuisbezorgd</button>
+        <button id="takeAway" onclick="takeAway();"> Ophalen </button>
 
     </div>
   </div>
