@@ -1,14 +1,14 @@
 
 
-var dataOrder = [[]];
+var dataOrder = [];
 var dataOrderT = ["Quattro Stagion","Romana","Frute di Mare","Tonno (e cipolla)"];
 var slices = 0;
 var price = 7;
 var globalPrice = 0;
-var topping_prices = [0.75,0.75,0.50,1,0.50]; //cheese, mushroom, salami, pineapple, ham
+var topping_prices = [0.75,0.75,0.50,1,0.50,0.75]; //cheese,mozzarella mushroom, salami, pineapple, ham, mozzarella
 var added_toppings = [];
 
-var p_saus = 1;
+var p_Sauce = 1;
 var pizzaArrayCV = [ "Margherita","Marinara","Quattro Formaggi","Verdure / Vegetariana","Carciofi", "Funghi"];
 var pizzaArrayMeat = ["Quattro Stagioni","Calzone","Capricciosa","Prosciutto","Diavola / Piccante" ];          
 var pizzaArrayFish = ["Napoli","Romana","Tonno (e cipolla)",  "Frute di Mare"];
@@ -16,6 +16,11 @@ var base = 0;
 var discount = false;
 var ordered = false;
 var emptied = false;
+var del_fee = false;
+var addedSauce = false;
+var size = false;
+var pizzaList = {pizza:"Margherita", price:10};
+
 
 
                   
@@ -42,7 +47,16 @@ var emptied = false;
       "tomaat, mozzarella, vongole, garnalen, mosselen, inktvis, langoustine en peterselie (na het bakken van de pizza)"
       ];     
        
-
+                function addMag (){
+               ordered = true;
+               globalPrice = globalPrice + pizzaList.price;
+               dataOrder.push(pizzaList.pizza);
+               displayPrice();
+               showOrder();
+               
+               
+             
+           }
 
      
         function showPizzaCV () {
@@ -169,15 +183,59 @@ var emptied = false;
           listItemOrder.appendChild(t);                            // Append the text to <li>   
           document.getElementById("orderlist").appendChild(listItemOrder);
 
-          var imgMin = document.createElement("img");
+          // var imgMin = document.createElement("img");
 
-          imgMin.setAttribute("src", "images/minus.png");
-          imgMin.setAttribute("height", "17");
-          imgMin.setAttribute("width", "17");
-          imgMin.setAttribute("alt", "minus symbol");
-          document.getElementById("Order"+i).appendChild(imgMin);            
+          // imgMin.setAttribute("src", "images/minus.png");
+          // imgMin.setAttribute("height", "17");
+          // imgMin.setAttribute("width", "17");
+          // imgMin.setAttribute("alt", "minus symbol");
+          // document.getElementById("Order"+i).appendChild(imgMin);            
            }
           }
+
+           function normal(){
+            if(size === false){
+               size = true;
+               added_toppings.push(" formaat = normal");
+               document.getElementById('largeSizeB').style.display = 'none';
+               document.getElementById('xlargeSizeB').style.display = 'none';
+               displayToppings();
+               displayPrice();
+               base++; 
+             }
+                
+             
+           }
+
+            function large(){
+
+             if(size === false){
+               size = true;
+               price = price +5;
+               added_toppings.push(" formaat = groot");
+               document.getElementById('normalSizeB').style.display = 'none';
+               document.getElementById('xlargeSizeB').style.display = 'none';
+               displayToppings();
+               displayPrice();
+               base++;
+
+             }
+           }
+
+            function xlarge(){
+
+            if(size === false){
+               size = true;
+               price = price +7;
+               added_toppings.push(" formaat = extra groot");
+               document.getElementById('normalSizeB').style.display = 'none';
+               document.getElementById('largeSizeB').style.display = 'none';
+               displayToppings();
+               displayPrice();
+               base++;
+             }  
+             
+           }
 
            function addCheese (){
 
@@ -192,6 +250,16 @@ var emptied = false;
 
                price = price + topping_prices[1];
                added_toppings.push("Champignon");
+               displayPrice();
+               displayToppings();
+               base++;  
+             
+           }
+
+             function addMozzarella (){
+
+               price = price + topping_prices[5];
+               added_toppings.push("mozzarella");
                displayPrice();
                displayToppings();
                base++;  
@@ -227,13 +295,27 @@ var emptied = false;
              
            }
 
-           function addSaus (){
+           function addSauce (){
+            if( addedSauce === false ){
+               addedSauce = true;
+               added_toppings.push("tomatensaus"); 
                document.getElementById('bodem').style.display = "none";
-               document.getElementById('bodemS').style.display = "block";    
-               price = price + p_saus;
+               document.getElementById('bodemS').style.display = "block";
+               document.getElementById('tomato').style.display = "none";
+               displayToppings();
+               base++;   
+               price = price + p_Sauce;
                displayPrice();
+            }
+           }
 
-             
+         function noSauce (){
+          if (addedSauce ===false){
+               added_toppings.push("geen saus");  
+               document.getElementById('tomatoS').style.display = "none";
+               displayToppings(); 
+               base++
+               }
            }
 
 
@@ -266,12 +348,19 @@ var emptied = false;
 
        }
 
-        function empty() {
+        function reset() {
           
          price = 7;
          base = 0;
          added_toppings = [];
          emptied = true;
+         document.getElementById('bodem').style.display = "block";
+         document.getElementById('bodemS').style.display = "none";
+         document.getElementById('tomatoS').style.display = "inline-block";
+         document.getElementById('tomato').style.display = "inline-block"; 
+         document.getElementById('normalSizeB').style.display = 'inline-block';
+         document.getElementById('largeSizeB').style.display = 'inline-block';
+         document.getElementById('xlargeSizeB').style.display = 'inline-block';
          displayPrice();
          displayToppings();
          
@@ -280,11 +369,13 @@ var emptied = false;
 
       function order () {
        ordered = true;
+       size = false;
        globalPrice = globalPrice + price; 
        dataOrder.push(added_toppings);
+       reset();
        displayPrice();
-       empty();
        displayToppings();
+       showOrder();
       }
 
       function  payBank() {
@@ -292,43 +383,51 @@ var emptied = false;
    
       if (discount === false && ordered === true) {
         discount = true;
-        globalPrice = globalPrice - 2;
+        globalPrice = globalPrice - 0.50;
         document.getElementById('cash').style.display = 'none';
         displayPrice();
-
+        showOrder();
         }
         document.getElementById('cash').style.display = 'none';
         displayPrice();
+        showOrder();
        
       }
 
        function  payCash() {
-        
-      document.getElementById("bank").style.display = "none";
-      displayPrice();
+        showOrder();
+       if(ordered=== true) {
+       document.getElementById("bank").style.display = "none";
+       displayPrice();
+       
+       }
+
       }
 
-     //  function  deliver() {
+      function  deliver() {
         
-     //  if (discount === false && ordered === true) {
+      if (del_fee === false && ordered === true) {
 
-     //    discount = true;
-     //    globalPrice = globalPrice + 3;
-     //    document.getElementById('cash').style.display = 'none';
-     //    displayPrice();
+        Del_fee = true;
+        globalPrice = globalPrice + 4;
+        document.getElementById('takeAway').style.display = 'none';
+        displayPrice();
+        showOrder();
 
-     //    }
-     //    document.getElementById('cash').style.display = 'none';
-     //    displayPrice();
+        }
+        document.getElementById('takeAway').style.display = 'none';
+        displayPrice();
+        showOrder();
        
-     //  }
+      }
 
 
-     // function  takeAway() {
+     function  takeAway() {
         
-     //  document.getElementById("bank").style.display = "none";
-     //  displayPrice();
-     //  }
+      document.getElementById("deliver").style.display = "none";
+      displayPrice();
+      showOrder();
+      }
         
  
 

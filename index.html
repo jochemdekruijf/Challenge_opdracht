@@ -23,11 +23,11 @@ body, html {height: 100%}
     
   </div>
   <div class="w3-display-topleft w3-container w3-xlarge">
-    <p><button onclick="document.getElementById('menu').style.display='block'" class="w3-button w3-black">menu</button></p>
+    <p><button onclick="document.getElementById('menu').style.display='block'" class="w3-button w3-black">menukaart</button></p>
 
-    <p><button onclick="document.getElementById('createOwn').style.display='block'" class="w3-button w3-black">creëer eigen</button></p>
+    <p><button onclick="document.getElementById('createOwn').style.display='block'" class="w3-button w3-black">maak eigen pizza</button></p>
   
-    <p><button onclick="document.getElementById('contact').style.display='block'" class="w3-button w3-black">Bestelling</button></p>
+    <p><button onclick="document.getElementById('contact').style.display='block'" class="w3-button w3-black">bestelling</button></p>
   </div>
   <div class="w3-display-bottomleft w3-container">
     <p class="w3-xlarge">Maandag - Vrijdag 9-23 </p>
@@ -41,15 +41,17 @@ body, html {height: 100%}
   <div class="w3-modal-content w3-animate-zoom">
     <div class="w3-container w3-black w3-display-container">
       <span onclick="document.getElementById('menu').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-      <h1>Menu</h1>
+      <h1>Menukaart</h1>
     </div>
     <div class="w3-container">
 
        <h1>Pizza's</h1>
-       
+       <li onclick="addMag()" id="magherita">Margherita</li>
       <ul id="list_CV"> 
         <h3>Kaas / groente </h3>
-        <script>showPizzaCV();
+
+      
+        <script>//showPizzaCV();
 
 
              
@@ -59,16 +61,17 @@ body, html {height: 100%}
 
       <ul id="list_M">
        <h3>Vlees</h3>
-       <script>showPizzaM();
+       <script>//showPizzaM();
 
     </script>
       </ul>
 
       <ul id="list_F">
        <h3>Vis</h3>
-       <script>showPizzaF();
+       <script>//showPizzaF();
 
      </script>
+     
       </ul>
        
 
@@ -80,7 +83,7 @@ body, html {height: 100%}
   <div class="w3-modal-content w3-animate-zoom">
     <div class="w3-container w3-black">
       <span onclick="document.getElementById('createOwn').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-      <h1>creëer eigen</h1>
+      <h1>maak eigen pizza</h1>
     </div>
     <div class="w3-container"> 
 
@@ -92,20 +95,29 @@ body, html {height: 100%}
 
        <h3 id="price_display"><script> displayPrice(); </script></h3>
 
+        <ul> <h4>formaat</h4>
+     <button id="normalSizeB" onclick="normal();">normaal- standaard + €0 </button>
+     <button id="largeSizeB" onclick="large();">groot + €5 </button>
+     <button id="xlargeSizeB" onclick="xlarge();">extra groot + €7 </button>
+    </ul>
+
     <ul> <h4>Sauzen</h4>
-     <button id="tomatoS" onclick="addSaus();">tomatensaus</button>
+     <button id="tomato" onclick="noSauce();"> geen saus</button>
+     <button id="tomatoS" onclick="addSauce();">tomatensaus</button>
+
     </ul>
     <ul> <h4>Beleg</h4>
       
       <button id="cheese" onclick="addCheese();">Kaas- €0.75</button>
+      <button id="mozzarella" onclick="addMozzarella();">Mozzarella- €0.75</button> 
       <button id="mushroom" onclick="addMushroom();">Champignon-  €0.75</button>
       <button id="salami" onclick="addSalami();" >Salami- €0.50</button>
       <button id="pineapple" onclick="addPineapple();">Ananas- €1</button>
       <button id="ham" onclick="addHam();">Ham- €0.50</button> 
     </ul>
        
-     <button id="empty" onclick="empty();">Nieuw</button>   
-     <button id="confirm" onclick="order();">Afronden</button>  
+     <button id="empty" onclick="reset();">Reset</button>   
+     <button id="confirm" onclick="order();">Voeg toe aan bestelling & reset</button>  
 
     </div>
   </div>
@@ -121,14 +133,17 @@ body, html {height: 100%}
     </div>
     <div class="w3-container"> 
         <ul id="orderlist">
-         <script type="text/javascript">
+         <script>
+          
           displayPrice();
-          showOrder();
+          
          </script> 
          </ul>
-        <button id="bank" onclick="payBank();">via bank</button>
+         <h3>Betaalmethode:</h3> 
+        <button id="bank" onclick="payBank();">via bank - €0.50</button>
         <button id="cash" onclick="payCash();">contant </button>
-        <button id="deliver" onclick="deliver();">Thuisbezorgd</button>
+         <h3>Ophalen of laten bezorgen</h3>
+        <button id="deliver" onclick="deliver();">Thuisbezorgd + €4</button>
         <button id="takeAway" onclick="takeAway();"> Ophalen </button>
 
     </div>
