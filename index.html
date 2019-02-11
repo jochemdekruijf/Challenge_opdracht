@@ -1,153 +1,122 @@
 <!DOCTYPE html>
 <html>
-<title>Pizza Reastaurant</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<script type="text/javascript" src="js/pizzaCalc.js"></script>
-<style>
-body,h1,h5 {font-family: "Raleway", sans-serif}
-body, html {height: 100%}
-.bgimg {
-  background-image: url('images/onepage_restaurant.jpg');
-  min-height: 100%;
-  background-position: center;
-  background-size: cover;
-}
-</style>
-<body>
-
-<div class="bgimg w3-display-container w3-text-white">
-  <div class="w3-display-middle w3-jumbo">
-    
-  </div>
-  <div class="w3-display-topleft w3-container w3-xlarge">
-    <p><button onclick="document.getElementById('menu').style.display='block'" class="w3-button w3-black">menukaart</button></p>
-
-    <p><button onclick="document.getElementById('createOwn').style.display='block'" class="w3-button w3-black">maak eigen pizza</button></p>
-  
-    <p><button onclick="document.getElementById('contact').style.display='block'" class="w3-button w3-black">bestelling</button></p>
-  </div>
-  <div class="w3-display-bottomleft w3-container">
-    <p class="w3-xlarge">Maandag - Vrijdag 9-23 </p>
-    <p class="w3-large">41°01'44.6"N 14°23'27.3"E</p>
-    
-  </div>
-</div>
-
-<!-- Menu Modal -->
-<div id="menu" class="w3-modal">
-  <div class="w3-modal-content w3-animate-zoom">
-    <div class="w3-container w3-black w3-display-container">
-      <span onclick="document.getElementById('menu').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-      <h1>Menukaart</h1>
-    </div>
-    <div class="w3-container">
-
-       <h1>Pizza's</h1>
-       <li onclick="addMag()" id="magherita">Margherita</li>
-      <ul id="list_CV"> 
-        <h3>Kaas / groente </h3>
-
-      
-        <script>//showPizzaCV();
-
-
-             
-
-      </script>
-      </ul>
-
-      <ul id="list_M">
-       <h3>Vlees</h3>
-       <script>//showPizzaM();
-
-    </script>
-      </ul>
-
-      <ul id="list_F">
-       <h3>Vis</h3>
-       <script>//showPizzaF();
-
-     </script>
-     
-      </ul>
-       
-
-    </div>
-  </div>
-</div>
-
-<div id="createOwn" class="w3-modal">
-  <div class="w3-modal-content w3-animate-zoom">
-    <div class="w3-container w3-black">
-      <span onclick="document.getElementById('createOwn').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-      <h1>maak eigen pizza</h1>
-    </div>
-    <div class="w3-container"> 
-
-    <img src="images/createOwn_imgs/bodem.jpeg" id="bodem" alt="pizza_bodem"  style= "width: 300px; height: 300px; padding: 10px;" >
-
-    <img src="images/createOwn_imgs/bodemS.jpeg" id="bodemS" alt="pizza_bodem_saus"  style= "display:none; width: 300px; height: 300px; padding: 10px;">
-
-       <h4 id="toppings">gekozen beleg: <script> displayToppings(); </script></h4>
-
-       <h3 id="price_display"><script> displayPrice(); </script></h3>
-
-        <ul> <h4>formaat</h4>
-     <button id="normalSizeB" onclick="normal();">normaal- standaard + €0 </button>
-     <button id="largeSizeB" onclick="large();">groot + €5 </button>
-     <button id="xlargeSizeB" onclick="xlarge();">extra groot + €7 </button>
-    </ul>
-
-    <ul> <h4>Sauzen</h4>
-     <button id="tomato" onclick="noSauce();"> geen saus</button>
-     <button id="tomatoS" onclick="addSauce();">tomatensaus</button>
-
-    </ul>
-    <ul> <h4>Beleg</h4>
-      
-      <button id="cheese" onclick="addCheese();">Kaas- €0.75</button>
-      <button id="mozzarella" onclick="addMozzarella();">Mozzarella- €0.75</button> 
-      <button id="mushroom" onclick="addMushroom();">Champignon-  €0.75</button>
-      <button id="salami" onclick="addSalami();" >Salami- €0.50</button>
-      <button id="pineapple" onclick="addPineapple();">Ananas- €1</button>
-      <button id="ham" onclick="addHam();">Ham- €0.50</button> 
-    </ul>
-       
-     <button id="empty" onclick="reset();">Reset</button>   
-     <button id="confirm" onclick="order();">Voeg toe aan bestelling & reset</button>  
-
-    </div>
-  </div>
-</div>
-
-
-
-<div id="contact" class="w3-modal">
-  <div class="w3-modal-content w3-animate-zoom">
-    <div class="w3-container w3-black">
-      <span onclick="document.getElementById('contact').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
-      <h1>bestelling</h1>
-    </div>
-    <div class="w3-container"> 
-        <ul id="orderlist">
-         <script>
-          
-          displayPrice();
-          
-         </script> 
-         </ul>
-         <h3>Betaalmethode:</h3> 
-        <button id="bank" onclick="payBank();">via bank - €0.50</button>
-        <button id="cash" onclick="payCash();">contant </button>
-         <h3>Ophalen of laten bezorgen</h3>
-        <button id="deliver" onclick="deliver();">Thuisbezorgd + €4</button>
-        <button id="takeAway" onclick="takeAway();"> Ophalen </button>
-
-    </div>
-  </div>
-</div>
-</body>
+   <title>Pizza Reastaurant</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+   <link rel="stylesheet" href="css/challenge.css">
+   <script type="text/javascript" src="js/pizzaCalc.js"></script>
+   <style>
+      body,h1,h5 {font-family: "Raleway", sans-serif}
+      body, html {height: 100%}
+      .bgimg {
+      background-image: url('images/onepage_restaurant.jpg');
+      min-height: 100%;
+      background-position: center;
+      background-size: cover;
+      }
+   </style>
+   <body>
+      <div class="bgimg w3-display-container w3-text-white">
+         <div class="w3-display-middle w3-jumbo">
+         </div>
+         <div class="w3-display-topleft w3-container w3-xlarge">
+            <p><button onclick="document.getElementById('menu').style.display='block'" class="w3-button w3-black">menukaart</button></p>
+            <p><button onclick="document.getElementById('createOwn').style.display='block'" class="w3-button w3-black">maak eigen pizza</button></p>
+            <p><button onclick="document.getElementById('contact').style.display='block'" class="w3-button w3-black">bestelling</button></p>
+         </div>
+         <div class="w3-display-bottomleft w3-container">
+            <p class="w3-xlarge">Maandag - Vrijdag 9-23 </p>
+            <p class="w3-large">41°01'44.6"N 14°23'27.3"E</p>
+         </div>
+      </div>
+      <!-- Menu Modal -->
+      <div id="menu" class="w3-modal">
+         <div class="w3-modal-content w3-animate-zoom">
+            <div class="w3-container w3-black w3-display-container">
+               <span onclick="document.getElementById('menu').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+               <h1>Menukaart</h1>
+            </div>
+            <div class="w3-container">
+               <h1>Pizza's</h1>
+               <button onclick="addMagherita()" id="magherita">Margherita</button>
+               <ul id="list_CV">
+                  <h3>Kaas / groente </h3>
+                  <script>//showPizzaCV();</script>
+               </ul>
+               <ul id="list_M">
+                  <h3>Vlees</h3>
+                  <script>//showPizzaM();</script>
+               </ul>
+               <ul id="list_F">
+                  <h3>Vis</h3>
+                  <script>//showPizzaF();</script>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div id="createOwn" class="w3-modal">
+         <div class="w3-modal-content w3-animate-zoom">
+            <div class="w3-container w3-black">
+               <span onclick="document.getElementById('createOwn').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+               <h1>maak eigen pizza</h1>
+            </div>
+            <div class="w3-container">
+               <img src="images/createOwn_imgs/bodem.jpeg" id="bodem" alt="pizza_bodem"  style= "width: 300px; height: 300px; padding: 10px;" >
+               <img src="images/createOwn_imgs/bodemS.jpeg" id="bodemS" alt="pizza_bodem_saus"  style= "display:none; width: 300px; height: 300px; padding: 10px;">
+               <h4 id="toppings">
+                  gekozen beleg: <script> displayToppings(); </script>
+               </h4>
+               <h3 id="price_display">
+                  <script> displayPrice(); </script>
+               </h3>
+               <ul>
+                  <h4>formaat</h4>
+                  <button id="normalSizeB" onclick="normal();">normaal- standaard + €0 </button>
+                  <button id="largeSizeB" onclick="large();">groot + €5 </button>
+                  <button id="xlargeSizeB" onclick="xlarge();">extra groot + €7 </button>
+               </ul>
+               <ul>
+                  <h4>Sauzen</h4>
+                  <button id="tomato" onclick="noSauce();"> geen saus</button>
+                  <button id="tomatoS" onclick="addSauce();">tomatensaus</button>
+               </ul>
+               <ul>
+                  <h4>Beleg</h4>
+                  <button id="cheese" onclick="addCheese();">Kaas- €0.75</button>
+                  <button id="mozzarella" onclick="addMozzarella();">Mozzarella- €0.75</button> 
+                  <button id="mushroom" onclick="addMushroom();">Champignon-  €0.75</button>
+                  <button id="salami" onclick="addSalami();" >Salami- €0.50</button>
+                  <button id="pineapple" onclick="addPineapple();">Ananas- €1</button>
+                  <button id="ham" onclick="addHam();">Ham- €0.50</button> 
+               </ul>
+               <button id="empty" onclick="reset();">Reset</button>   
+               <button id="confirm" onclick="order();">Voeg toe aan bestelling & reset</button>  
+            </div>
+         </div>
+      </div>
+      <div id="contact" class="w3-modal">
+         <div class="w3-modal-content w3-animate-zoom">
+            <div class="w3-container w3-black">
+               <span onclick="document.getElementById('contact').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
+               <h1>bestelling</h1>
+            </div>
+            <div class="w3-container">
+               <ul id="orderlist">
+                  <script>
+                     displayPrice();
+                     
+                  </script> 
+               </ul>
+               <h3>Betaalmethode:</h3>
+               <button id="bank" onclick="payBank();">via bank - €0.50</button>
+               <button id="cash" onclick="payCash();">contant </button>
+               <h3>Ophalen of laten bezorgen</h3>
+               <button id="deliver" onclick="deliver();">Thuisbezorgd + €4</button>
+               <button id="takeAway" onclick="takeAway();"> Ophalen </button>
+            </div>
+         </div>
+      </div>
+   </body>
 </html>
