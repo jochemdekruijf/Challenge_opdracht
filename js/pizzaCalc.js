@@ -1,171 +1,20 @@
 var dataOrder = [];
 var price = 5;
 var globalPrice = 0;
-var topping_prices = [0.75, 0.75, 0.50, 1, 0.50, 0.75]; //cheese,mozzarella mushroom, salami, pineapple, ham
-var toppings = [false,false,false,false,false,false];
+var topping_prices = [1, 0.75, 0.75, 0.50, 1, 0.50]; //cheese,mozzarella mushroom, salami, pineapple, ham
+var toppingBoolean = [false,false,false,false,false,false];
 var added_toppings = [];
-var p_Sauce = 1;
-var pizzaArrayCV = ["Margherita", "Marinara", "Quattro Formaggi", "Verdure / Vegetariana", "Carciofi", "Funghi"];
-var pizzaArrayMeat = ["Quattro Stagioni", "Calzone", "Capricciosa", "Prosciutto", "Diavola / Piccante"];
-var pizzaArrayFish = ["Napoli", "Romana", "Tonno (e cipolla)", "Frute di Mare"];
+var t_Sauce = 1;
 var base = 0;
 var pizzaCount = 0;
+var selectIngredient = false;
 var discount = false;
+var selectSizeBoolean = false;
 var ordered = false;
-var emptied = false;
 var del_fee = false;
-var addedSauce = false;
+var sauceBoolean = false;
 var size = false;
-var pizzaList = {
- pizza: "Margherita",
- price: 10
-};
 
-
-
-
-var descript_CV = [
- "tomaat, mozzarella, basilicum",
- "tomaat, knoflook, olie en oregano (pas als de pizza uit de oven komt)",
- "gorgonzola, mozzarella, pecorino en taleggio. In Nederland wordt de pecorino en taleggio vaak vervangen door Parmezaanse kaas en gewone Hollandse (Goudse) kaas",
- "tomaat, mozzarella, paprika en (gegrilde) courgette en aubergine. Soms ook broccoli of spinazie.",
- "tomaat, mozzarella en artisjok",
- "tomaat, mozzarella en (verse) champignons"
-];
-var descript_M = [
- "tomaat, mozzarella, ham, champignons, olijven, artisjokken (soms doperwten in plaats van artisjok)",
- "tomaat, mozzarella, champignons en ham.",
- "tomaat, mozzarella, artisjokken, zwarte olijven, ham en champignons.",
- "tomaat, mozzarella en prosciutto (let op: de rauwe ham pas na het bakken op de pizza leggen). Desgwenst ook rucola en Parmezaanse kaas.",
- "tomaat, mozzarella, pikante salami"
-];
-
-var descriptions_F = [
- "tomaat, mozzarella, kappertjes en ansjovis",
- "tomaat, mozzarella, ansjovis en na het bakken oregano",
- "tomaat, mozzarella, tonijn (met of zonder ui)",
- "tomaat, mozzarella, vongole, garnalen, mosselen, inktvis, langoustine en peterselie (na het bakken van de pizza)"
-];
-
-function addMagherita() {
- ordered = true;
- globalPrice = globalPrice + pizzaList.price;
- dataOrder.push(pizzaList.pizza);
- displayPrice();
- showOrder();
-
-
-
-}
-
-function showPizzaCV() {
-
- for (var i = 0; i < pizzaArrayCV.length; i++) {
-
-  var listItem = document.createElement("LI"); // Create a <li> element
-  var t = document.createTextNode(pizzaArrayCV[i]); // Create a text node
-  listItem.setAttribute("id", "CV" + i);
-  listItem.appendChild(t);
-  document.getElementById("list_CV").appendChild(listItem);
-
-  var img = document.createElement("img");
-  img.setAttribute("src", "images/plus_symbol.png");
-  img.setAttribute("height", "17");
-  img.setAttribute("width", "17");
-  img.setAttribute("alt", "plus symbol");
-  document.getElementById("CV" + i).appendChild(img);
-
-  var divI = document.createElement("div");
-
-  var text_info = document.createTextNode(descript_CV[i]);
-
-  divI.appendChild(text_info);
-  divI.setAttribute("id", "divICV" + i);
-  divI.setAttribute("height", "100");
-  divI.setAttribute("width", "100");
-  divI.setAttribute("width", "100");
-  divI.setAttribute("alt", " info symbol");
-  document.getElementById("CV" + i).appendChild(divI);
-
-
-
- }
-}
-
-
-
-function showPizzaM() {
-
- for (var i = 0; i < pizzaArrayMeat.length; i++) {
-
-  var listItem = document.createElement("LI"); // Create a <li> element
-  var t = document.createTextNode(pizzaArrayMeat[i]); // Create a text node
-  listItem.setAttribute("id", "M" + i);
-  listItem.appendChild(t); // Append the text to <li>   
-  document.getElementById("list_M").appendChild(listItem);
-
-  var img = document.createElement("img");
-
-  img.setAttribute("src", "images/plus_symbol.png");
-  img.setAttribute("height", "17");
-  img.setAttribute("width", "17");
-  img.setAttribute("alt", "plus symbol");
-  document.getElementById("M" + i).appendChild(img);
-
-  var divI = document.createElement("div");
-
-  var text_info = document.createTextNode(descript_M[i]);
-
-  divI.appendChild(text_info);
-  divI.setAttribute("id", "divIM" + i);
-  divI.setAttribute("height", "100");
-  divI.setAttribute("width", "100");
-  divI.setAttribute("width", "100");
-  divI.setAttribute("alt", " info symbol");
-  document.getElementById("M" + i).appendChild(divI);
-
-
- }
-}
-
-
-
-function showPizzaF() {
-
- for (var i = 0; i < pizzaArrayFish.length; i++) {
-
-  var listItem = document.createElement("LI"); // Create a <li> element
-  var t = document.createTextNode(pizzaArrayFish[i]); // Create a text node
-  listItem.setAttribute("id", "F" + i);
-  listItem.appendChild(t); // Append the text to <li>   
-  document.getElementById("list_F").appendChild(listItem);
-
-  var img = document.createElement("img");
-
-  img.setAttribute("src", "images/plus_symbol.png");
-  img.setAttribute("height", "17");
-  img.setAttribute("width", "17");
-  img.setAttribute("alt", "plus symbol");
-  document.getElementById("F" + i).appendChild(img);
-
-
-  var divI = document.createElement("div");
-
-  var text_info = document.createTextNode(descriptions_F[i]);
-
-  divI.appendChild(text_info);
-  divI.setAttribute("id", "divIF" + i);
-  divI.setAttribute("height", "100");
-  divI.setAttribute("width", "100");
-  divI.setAttribute("width", "100");
-  divI.setAttribute("alt", " Info Div");
-  document.getElementById("F" + i).appendChild(divI);
-
-
-
-
- }
-}
 
 function showOrder() {
 
@@ -179,142 +28,141 @@ function showOrder() {
  }
 }
 
-function normal() {
- if (size === false) {
-  size = true;
-  added_toppings.push(" formaat = normal");
-  document.getElementById('largeSizeB').style.display = 'none';
-  document.getElementById('xlargeSizeB').style.display = 'none';
+function selectedSize(selected) {
+
+  
+     if(selected === "normal" && size === false){
+
+       added_toppings.push(" formaat: normaal");
+       document.getElementById('largeSizeB').style.display = 'none';
+       document.getElementById('xlargeSizeB').style.display = 'none';
+       selectSizeBoolean = true;
+       size = true;
+     }
+
+      if(selected === "large" && size === false){
+
+        added_toppings.push(" formaat: groot");
+        document.getElementById('normalSizeB').style.display = 'none';
+        document.getElementById('xlargeSizeB').style.display = 'none';
+        price = price + 3;
+        selectSizeBoolean = true;
+        size = true;
+     }
+
+      if(selected === "xlarge" && size === false){
+
+        added_toppings.push(" formaat: extra groot");
+        document.getElementById('largeSizeB').style.display = 'none';
+        document.getElementById('normalSizeB').style.display = 'none';
+        price = price + 5;
+        selectSizeBoolean = true;
+        size = true;
+     }
+
+      if( selectSizeBoolean === false){
+
+        base++;
+
+      } 
+     
   displayToppings();
   displayPrice();
-  base++;
- }
 }
 
-function large() {
 
- if (size === false) {
-  size = true;
-  price = price + 5;
-  added_toppings.push(" formaat = groot");
-  document.getElementById('normalSizeB').style.display = 'none';
-  document.getElementById('xlargeSizeB').style.display = 'none';
+ function addIngredient(ingredient){
+
+    if (ingredient === "cheese" && toppingBoolean[0] === false) {
+
+     price = price + topping_prices[0];
+     added_toppings.push("Kaas");
+     toppingBoolean[0] = true;
+     selectIngredient = true;
+    }
+
+    if (ingredient === "mozzarella" && toppingBoolean[1] === false) {
+
+     price = price + topping_prices[1];
+     added_toppings.push("mozzarella");
+     toppingBoolean[1] = true;
+     selectIngredient = true;
+    }
+
+    if (ingredient === "mushroom" && toppingBoolean[2] === false) {
+
+     price = price + topping_prices[2];
+     added_toppings.push("champignon");
+     toppingBoolean[2] = true;
+     selectIngredient = true;
+    }
+
+    if (ingredient === "salami" && toppingBoolean[3] === false) {
+
+     price = price + topping_prices[3];
+     added_toppings.push("salami");
+     toppingBoolean[3] = true;
+     selectIngredient = true;
+    }
+
+    if (ingredient === "pineapple" && toppingBoolean[4] === false) {
+
+     price = price + topping_prices[4];
+     added_toppings.push("ananas");
+     toppingBoolean[4] = true;
+     selectIngredient = true;
+    }
+
+    if (ingredient === "ham" && toppingBoolean[5] === false) {
+
+     price = price + topping_prices[5];
+     added_toppings.push("ham");
+     toppingBoolean[5] = true;
+     selectIngredient = true;
+
+     }
+
+     if (selectIngredient === false) {
+
+       base++;
+     }
+
+ displayPrice();
+ displayToppings();
+}
+
+function  Sauce(ingredient) {
+
+  
+     if(ingredient === "tomato" && sauceBoolean === false ){
+
+       added_toppings.push("saus: tomatensaus");
+       price = price + t_Sauce;
+       document.getElementById('bodem').style.display = "none";
+       document.getElementById('bodemS').style.display = "block";
+       document.getElementById('noSauce').style.display = "none";
+       selectSauceBoolean = true;
+       sauceBoolean = true;
+     }
+
+      if(ingredient === "none" && sauceBoolean === false){
+
+        added_toppings.push("saus: geen");
+        document.getElementById('bodemS').style.display = 'none';
+        document.getElementById('bodem').style.display = 'block';
+        document.getElementById('tomatoS').style.display = 'none';
+        selectSauceBoolean = true;
+        sauceBoolean = true;
+     }
+
+      if( selectSauceBoolean === false){
+
+        base++;
+
+      } 
+     
   displayToppings();
   displayPrice();
-  base++;
-
- }
-}
-
-function xlarge() {
-
- if (size === false) {
-  size = true;
-  price = price + 7;
-  added_toppings.push(" formaat = extra groot");
-  document.getElementById('normalSizeB').style.display = 'none';
-  document.getElementById('largeSizeB').style.display = 'none';
-  displayToppings();
-  displayPrice();
-  base++;
- }
-}
-
-function addCheese() {
-
- if(toppings[0] === false){
-  toppings[0] = true;
-  price = price + topping_prices[0];
-  added_toppings.push("Kaas");
-  displayPrice();
-  displayToppings();
-  base++;
- }
-}
-
-function addMushroom() {
-
- if (toppings[2] === false) { 
-  toppings[2] = true;
-  price = price + topping_prices[1];
-  added_toppings.push("Champignon");
-  displayPrice();
-  displayToppings();
-  base++;
- }
-}
-
-function addMozzarella() {
-
- if (toppings[1]===false) {
-  toppings[1] = true;
-  price = price + topping_prices[5];
-  added_toppings.push("mozzarella");
-  displayPrice();
-  displayToppings();
-  base++;
- }
-}
-
-function addSalami() {
-
- if (toppings[3] === false) { 
-  toppings[3] = true;
-  price = price + topping_prices[2];
-  added_toppings.push("Salami");
-  displayPrice();
-  displayToppings();
-  base++;
- }
-}
-
-function addPineapple() {
-
- if (toppings[4] === false) { 
-  toppings[4] = true;
-  price = price + topping_prices[3];
-  added_toppings.push("Ananas");
-  displayPrice();
-  displayToppings();
-  base++;
- }
-}
-
-function addHam() {
-
- if (toppings[5] === false) { 
-  toppings[5] = true;
-  price = price + topping_prices[4];
-  added_toppings.push("Ham");
-  displayPrice();
-  displayToppings();
-  base++;
- }
-}
-
-function addSauce() {
-
- if (addedSauce === false) {
-  addedSauce = true;
-  added_toppings.push("tomatensaus");
-  document.getElementById('bodem').style.display = "none";
-  document.getElementById('bodemS').style.display = "block";
-  document.getElementById('tomato').style.display = "none";
-  displayToppings();
-  base++;
-  price = price + p_Sauce;
-  displayPrice();
- }
-}
-
-function noSauce() {
-
- if (addedSauce === false) {
-  added_toppings.push("geen saus");
-  document.getElementById('tomatoS').style.display = "none";
-  displayToppings();
-  base++
- }
 }
 
 
@@ -329,6 +177,7 @@ function displayPrice() {
 
 function displayToppings() {
 
+  document.getElementById("toppings").innerHTML = "gekozen beleg: ";
 
  for (var i = base; i < added_toppings.length; i++) {
 
@@ -347,13 +196,17 @@ function reset() {
  
  price = 5;
  base = 0;
- toppings = [false,false,false,false,false,false];
- addedSauce = false;
+ toppingBoolean = [false,false,false,false,false,false];
+ selectSizeBoolean = false;
+ size = false;
+ selectIngredient = false;
+ sauceBoolean = false;
+ selectSauceBoolean = false;
  added_toppings = [];
  document.getElementById('bodem').style.display = "block";
  document.getElementById('bodemS').style.display = "none";
  document.getElementById('tomatoS').style.display = "inline-block";
- document.getElementById('tomato').style.display = "inline-block";
+ document.getElementById('noSauce').style.display = "inline-block";
  document.getElementById('normalSizeB').style.display = 'inline-block';
  document.getElementById('largeSizeB').style.display = 'inline-block';
  document.getElementById('xlargeSizeB').style.display = 'inline-block';
