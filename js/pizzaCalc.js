@@ -226,45 +226,39 @@ function order() {
  showOrder();
 }
 
-function payBank() {
+  function payBy(method) {
 
+    if (method === 'bank'  && discount === false && ordered === true) {
 
- if (discount === false && ordered === true) {
-  discount = true;
-  globalPrice = globalPrice - 0.50;
-  document.getElementById('cash').style.display = 'none';
+         discount = true;
+         globalPrice = globalPrice - 0.50;
+         document.getElementById('cash').style.display = 'none';
+     }
+
+    if (method ==='cash' && ordered === true) {
+
+    document.getElementById("bank").style.display = "none";
+   }
+
   displayPrice();
   showOrder();
- }
-}
+  }
 
-function payCash() {
+  function method(method) {
+   
+    if (method === 'deliver'  && del_fee === false && ordered === true) {
 
- if (ordered === true) {
-  document.getElementById("bank").style.display = "none";
-  displayPrice();
-  showOrder();
+      del_fee = true;
+      globalPrice = globalPrice + 4;
+      document.getElementById('takeAway').style.display = 'none';
+    }
 
- }
-}
+    if (method ==='takeAway' && ordered === true) {
 
-function deliver() {
+    document.getElementById("bank").style.display = "none";
+    
+   }
+    displayPrice();
+    showOrder();
+  }
 
- if (del_fee === false && ordered === true) {
-
-  del_fee = true;
-  globalPrice = globalPrice + 4;
-  document.getElementById('takeAway').style.display = 'none';
-  displayPrice();
-  showOrder();
-
- }
-}
-
-
-function takeAway() {
-
- document.getElementById("deliver").style.display = "none";
- displayPrice();
- showOrder();
-}

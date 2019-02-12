@@ -104,11 +104,11 @@
                   </script> 
                </ul>
                <h3>Betaalmethode:</h3>
-               <button id="bank" onclick="payBank();">via bank - €0.50</button>
-               <button id="cash" onclick="payCash();">contant </button>
+               <button id="bank" onclick="payBy('bank');">via bank - €0.50</button>
+               <button id="cash" onclick="payBy('cash');">contant </button>
                <h3>Ophalen of laten bezorgen</h3>
-               <button id="deliver" onclick="deliver();">Thuisbezorgd + €4</button>
-               <button id="takeAway" onclick="takeAway();"> Ophalen </button>
+               <button id="deliver" onclick="method('deliver');">Thuisbezorgd + €4</button>
+               <button id="takeAway" onclick="method('takeAway');"> Ophalen </button>
             </div>
          </div>
       </div>
