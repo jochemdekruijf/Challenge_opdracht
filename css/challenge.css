@@ -3,12 +3,56 @@ button {
 
 }
 #pizza0,#pizza1,#pizza2,#pizza3,#pizza4,#pizza5,#pizza6 {
- width: 240px;
- height: 240px;
+ width: 200px;
+ height: 200px;
  border-radius: 5px;
- margin:10px;
+ margin:15px;
+ border: 2px solid black;
 }
 
 #displayPizza{
- margin-left: 30px;
+  margin-left: 45px ;
+}
+
+.menu{
+  display: inline-block;
+
+} 
+
+.menu h3{
+  text-align: center;
+
+}
+#bodem,#bodemS{
+ 
+
+}
+
+#fromMenu,#added2order {
+display: none;
+
+}
+
+.alert {
+  padding: 20px;
+  background-color: #4CAF50;
+  color: white;
+  
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 3px;
+
+}
+
+.closebtn:hover {
+  color: black;
 }

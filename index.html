@@ -6,6 +6,7 @@
    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
    <link rel="stylesheet" href="css/challenge.css">
+   <link rel="icon" type="image/png" href="images/favicon.png">
    <script type="text/javascript" src="js/pizzaCalc.js"></script>
    <style>
       body,h1,h5 {font-family: "Raleway", sans-serif}
@@ -38,15 +39,22 @@
                <span onclick="document.getElementById('menu').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
                <h1>Menukaart</h1>
             </div>
+             <div id="fromMenu">
+              <div class="alert" >
+               <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+               <strong>Succes!</strong> De geselecteerde pizza is toegevoegd
+              </div>
+             </div>
             <div class="w3-container">
                <h1>Pizza's</h1>  
-               <div id="displayPizza"></div>
-                <img id="pizza0" src="images/margerita.png" alt="margeritha">
-                <img id="pizza1" src="images/hawaii.png" alt="hawaii">
-                <img id="pizza2" src="images/salami.png" alt="salami">
-                <img id="pizza3" src="images/funghi.png" alt="funghi">
-                <img id="pizza4" src="images/quattro-formaggi.png" alt="quattro_formaggi">
-                <img id="pizza5" src="images/vegetarian.png" alt="vegetarian">
+               <div id="displayPizza">
+                <div class="menu"><h3>Magerita</h3><img id="pizza0" src="images/margerita.png" alt="margeritha" onclick="addFromMenu('margerita');"></div>
+                <div class="menu"><h3>Hawaii</h3><img id="pizza1" src="images/hawaii.png" alt="hawaii" onclick="addFromMenu('hawaii')"></div>
+                <div class="menu"><h3>Salami</h3><img id="pizza2" src="images/salami.png" alt="salami" onclick="addFromMenu('salami')"></div>
+                <div class="menu"><h3>funghi</h3><img id="pizza3" src="images/funghi.png" alt="funghi" onclick="addFromMenu('funghi')"></div>
+                <div class="menu"><h3>quattro formaggi</h3><img id="pizza4" src="images/quattro-formaggi.png" alt="quattro_formaggi" onclick="addFromMenu('quattro-formaggi');"></div>
+                <div class="menu"><h3>vegetarian</h3><img id="pizza5" src="images/vegetarian.png" alt="vegetarian"  onclick="addFromMenu('vegetarian');"></div>
+             </div>
             </div>
          </div>
       </div>
@@ -56,6 +64,12 @@
                <span onclick="document.getElementById('createOwn').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
                <h1>maak eigen pizza</h1>
             </div>
+               <div id="added2order">
+                   <div class="alert" >
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                    <strong>Succes!</strong> De zelfgemaakte pizza is toegevoegd
+                 </div>
+                </div>
             <div class="w3-container">
                <img src="images/createOwn_imgs/bodem.jpeg" id="bodem" alt="pizza_bodem"  style= "width: 300px; height: 300px; padding: 10px;" >
                <img src="images/createOwn_imgs/bodemS.jpeg" id="bodemS" alt="pizza_bodem_saus"  style= "display:none; width: 300px; height: 300px; padding: 10px;">
@@ -108,7 +122,7 @@
                <button id="cash" onclick="payBy('cash');">contant </button>
                <h3>Ophalen of laten bezorgen</h3>
                <button id="deliver" onclick="method('deliver');">Thuisbezorgd + €4</button>
-               <button id="takeAway" onclick="method('takeAway');"> Ophalen </button>
+               <button id="takeAway" onclick="method('takeaway');"> Ophalen </button>
             </div>
          </div>
       </div>
