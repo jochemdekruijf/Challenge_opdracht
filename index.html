@@ -4,7 +4,7 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+   <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
    <link rel="stylesheet" href="css/challenge.css">
    <link rel="icon" type="image/png" href="images/favicon.png">
    <script type="text/javascript" src="js/pizzaCalc.js"></script>
@@ -39,22 +39,45 @@
                <span onclick="document.getElementById('menu').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
                <h1>Menukaart</h1>
             </div>
-             <div id="fromMenu">
-              <div class="alert" >
-               <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-               <strong>Succes!</strong> De geselecteerde pizza is toegevoegd
-              </div>
-             </div>
+            <div id="fromMenu">
+               <div class="alert" >
+                  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                  <strong>Succes!</strong> De geselecteerde pizza is toegevoegd
+               </div>
+            </div>
             <div class="w3-container">
-               <h1>Pizza's</h1>  
+               <h1>Pizza's</h1>
                <div id="displayPizza">
-                <div class="menu"><h3>Magerita</h3><img id="pizza0" src="images/margerita.png" alt="margeritha" onclick="addFromMenu('margerita');"></div>
-                <div class="menu"><h3>Hawaii</h3><img id="pizza1" src="images/hawaii.png" alt="hawaii" onclick="addFromMenu('hawaii')"></div>
-                <div class="menu"><h3>Salami</h3><img id="pizza2" src="images/salami.png" alt="salami" onclick="addFromMenu('salami')"></div>
-                <div class="menu"><h3>funghi</h3><img id="pizza3" src="images/funghi.png" alt="funghi" onclick="addFromMenu('funghi')"></div>
-                <div class="menu"><h3>quattro formaggi</h3><img id="pizza4" src="images/quattro-formaggi.png" alt="quattro_formaggi" onclick="addFromMenu('quattro-formaggi');"></div>
-                <div class="menu"><h3>vegetarian</h3><img id="pizza5" src="images/vegetarian.png" alt="vegetarian"  onclick="addFromMenu('vegetarian');"></div>
-             </div>
+                  <div class="menu">
+                     <h3>Magerita</h3>
+                     <div id="sizeSelectorMenu">
+                        normaal<input type="checkbox" name="checkboxL">
+                        groot<input type="checkbox" name="checkbox">
+                        extra groot<input type="checkbox" name="checkbox">
+                     </div>
+                     <img id="pizza0" src="images/margerita.png" alt="margeritha" onclick="addFromMenu('margerita');">
+                  </div>
+                  <div class="menu">
+                     <h3>Hawaii</h3>
+                     <img id="pizza1" src="images/hawaii.png" alt="hawaii" onclick="addFromMenu('hawaii')">
+                  </div>
+                  <div class="menu">
+                     <h3>Salami</h3>
+                     <img id="pizza2" src="images/salami.png" alt="salami" onclick="addFromMenu('salami')">
+                  </div>
+                  <div class="menu">
+                     <h3>Funghi</h3>
+                     <img id="pizza3" src="images/funghi.png" alt="funghi" onclick="addFromMenu('funghi')">
+                  </div>
+                  <div class="menu">
+                     <h3>Quattro formaggi</h3>
+                     <img id="pizza4" src="images/quattro-formaggi.png" alt="quattro_formaggi" onclick="addFromMenu('quattro-formaggi');">
+                  </div>
+                  <div class="menu">
+                     <h3>Vegetarian</h3>
+                     <img id="pizza5" src="images/vegetarian.png" alt="vegetarian"  onclick="addFromMenu('vegetarian');">
+                  </div>
+               </div>
             </div>
          </div>
       </div>
@@ -64,15 +87,15 @@
                <span onclick="document.getElementById('createOwn').style.display='none'" class="w3-button w3-display-topright w3-large">x</span>
                <h1>maak eigen pizza</h1>
             </div>
-               <div id="added2order">
-                   <div class="alert" >
-                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-                    <strong>Succes!</strong> De zelfgemaakte pizza is toegevoegd
-                 </div>
-                </div>
+            <div id="added2order">
+               <div class="alert" >
+                  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                  <strong>Succes!</strong> De zelfgemaakte pizza is toegevoegd
+               </div>
+            </div>
             <div class="w3-container">
-               <img src="images/createOwn_imgs/bodem.jpeg" id="bodem" alt="pizza_bodem"  style= "width: 300px; height: 300px; padding: 10px;" >
-               <img src="images/createOwn_imgs/bodemS.jpeg" id="bodemS" alt="pizza_bodem_saus"  style= "display:none; width: 300px; height: 300px; padding: 10px;">
+               <img src="images/createOwn_imgs/bodem.jpeg" id="bodem" alt="pizza_bodem"  style= "width: 300px; height: 300px;" >
+               <img src="images/createOwn_imgs/bodemS.jpeg" id="bodemS" alt="pizza_bodem_saus"  style= "display:none; width: 300px; height: 300px; ">
                <h4 id="toppings">
                   gekozen beleg:
                </h4>
@@ -81,9 +104,9 @@
                </h3>
                <ul>
                   <h4>formaat</h4>
-                  <button id="normalSizeB" onclick="selectedSize('normal');">normaal- standaard + €0 </button>
-                  <button id="largeSizeB" onclick="selectedSize('large');">groot + €3 </button>
-                  <button id="xlargeSizeB" onclick="selectedSize('xlarge');">extra groot + €5 </button>
+                  <button id="normalSizeB" onclick="selectedSize('normal');">normaal- standaard  (€0 Ø25cm )</button>
+                  <button id="largeSizeB" onclick="selectedSize('large');">groot (€3 Ø30cm )</button>
+                  <button id="xlargeSizeB" onclick="selectedSize('xlarge');">extra groot (€5 Ø 35cm)</button>
                </ul>
                <ul>
                   <h4>Sauzen</h4>
@@ -128,3 +151,4 @@
       </div>
    </body>
 </html>
+

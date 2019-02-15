@@ -1,58 +1,98 @@
+
+
+* {
+	font-family: 'Slabo 27px', serif;
+}
+
+#pizza0,
+#pizza1,
+#pizza2,
+#pizza3,
+#pizza4,
+#pizza5,
+#pizza6 {
+	width: 200px;
+	height: 200px;
+	border-radius: 5px;
+	margin: 15px;
+	border: 2px solid black;
+}
+
+#displayPizza {
+	margin-left: 45px;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#bodemS,
+#bodem {
+	display: block;
+	margin: 0 auto;
+	border-radius: 5px;
+	border: 2px solid black;
+	margin-top: 5px;
+}
+
+.menu {
+	display: inline-block;
+	font-family: 'Slabo 27px', serif;
+}
+
+h1 {
+	text-align: center;
+	font-family: 'Slabo 27px', serif;
+}
+
+.menu:hover {
+	background-color: #cccccc;
+	cursor: pointer;
+	transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+
+button:hover {
+	background-color: white;
+	color: black;
+	cursor: pointer;
+	transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+
 button {
- border-radius: 2px;
-
-}
-#pizza0,#pizza1,#pizza2,#pizza3,#pizza4,#pizza5,#pizza6 {
- width: 200px;
- height: 200px;
- border-radius: 5px;
- margin:15px;
- border: 2px solid black;
+	border-radius: 2px;
+	background-color: black;
+	color: white;
+	border: solid black 1px;
+	padding: 5px;
+	margin: 3px;
 }
 
-#displayPizza{
-  margin-left: 45px ;
+#fromMenu,
+#added2order {
+	display: none;
 }
 
-.menu{
-  display: inline-block;
-
-} 
-
-.menu h3{
-  text-align: center;
-
-}
-#bodem,#bodemS{
- 
-
-}
-
-#fromMenu,#added2order {
-display: none;
-
-}
+#sizeSelectorMenu {}
 
 .alert {
-  padding: 20px;
-  background-color: #4CAF50;
-  color: white;
-  
+	padding: 20px;
+	background-color: #4CAF50;
+	color: white;
+	font-family: 'Slabo 27px', serif;
 }
 
 .closebtn {
-  margin-left: 15px;
-  color: white;
-  font-weight: bold;
-  float: right;
-  font-size: 22px;
-  line-height: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-  border-radius: 3px;
-
+	margin-left: 15px;
+	color: white;
+	font-weight: bold;
+	float: right;
+	font-size: 22px;
+	line-height: 20px;
+	cursor: pointer;
+	transition: 0.3s;
+	border-radius: 3px;
 }
 
 .closebtn:hover {
-  color: black;
+	color: black;
 }
+
