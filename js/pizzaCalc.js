@@ -1,21 +1,22 @@
-var dataOrder = [];
-var price = 5;
-var globalPrice = 0;
+var dataOrder = []; // bestelling array, houdt de bestelling bij
+var price = 5; // houdt de prijs van zelfgemaakte pizza bij
+var globalPrice = 0; // globale bestelling prijs
 var topping_prices = [1, 0.75, 0.75, 0.50, 1, 0.50]; //cheese,mozzarella mushroom, salami, pineapple, ham
-var toppingBoolean = [false, false, false, false, false, false];
-var added_toppings = [];
-var base = 0;
-var pizzaCount = 0;
-var selectIngredient = false;
-var discount = false;
-var selectSizeBoolean = false;
-var ordered = false;
-var del_fee = false;
-var sauceBoolean = false;
-var size = false;
-var ingredientCheck = false;
+var toppingBoolean = [false, false, false, false, false, false]; //booleans voor de ingredienten
+var added_toppings = []; // array waar de geselcteerde toppings in worden gezet
+var base = 0; //houdt het aantal toppings bij 
+var selectIngredient = false; //controleert of je een ingrediënt geselecteerd hebt
+var ingredientCheck = false;  //controleert in de order functie of je iets geselecteerd had
+var discount = false; //controleert of de korting al gegeven is
+var selectSizeBoolean = false; // controleert of de korting al gegeven is
+var ordered = false; //controleert of je iets besteld hebt
+var del_fee = false; // deliver fee, controleert of je de deliver fee al bij de totale prijs(globalPrice) opgeteld is
+var sauceBoolean = false; //controleert of er een saus geselecteerd is 
+var size = false; // controleer of je een formaat gekozen hebt
 
-//---algemeen---\\
+
+            //---algemeen---\\
+
  //display and update the price
 function displayPrice() {
 
@@ -33,7 +34,7 @@ function alertNotification(alertArgument) {
         console.log('show notification: menu');
         document.getElementById('fromMenu').style.display = "block";
         setTimeout(function() {
-            document.getElementById('fromMenu').style.display = "none";
+        document.getElementById('fromMenu').style.display = "none";
         }, 900);
     }
     if (alertArgument === 'added2order') {
@@ -41,13 +42,13 @@ function alertNotification(alertArgument) {
         console.log('show notification: create own');
         document.getElementById('added2order').style.display = "block";
         setTimeout(function() {
-            document.getElementById('added2order').style.display = "none";
+        document.getElementById('added2order').style.display = "none";
         }, 900);
     }
 
 }
 
-    //---menu---\\
+                //---menu---\\
 
   // voegt de pizza toe aan de bestelling
 function addFromMenu(pizza) {
@@ -113,7 +114,7 @@ function addFromMenu(pizza) {
     showOrder();
 
 }
-//---zelgemaakte pizza---\\
+         //---zelgemaakte pizza---\\
  // functie bepaalt de pizza grootte
 function selectedSize(selected) {
 
@@ -338,7 +339,7 @@ function order() {
         console.log('order added to dataOrder');
     } else {
 
-        alert('voeg beleg toe');
+        alert('selecteer minimaal een saus, als u geen saus kiest is het standaard normaal');
     }
 
 }
