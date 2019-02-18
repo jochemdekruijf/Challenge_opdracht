@@ -67,15 +67,20 @@ button {
 }
 
 #fromMenu,
-#added2order {
+#added2order,
+#added2orderError {
 	display: none;
 }
-
-#sizeSelectorMenu {}
 
 .alert {
 	padding: 20px;
 	background-color: #4CAF50;
+	color: white;
+	font-family: 'Slabo 27px', serif;
+}
+.alertError {
+	padding: 20px;
+	background-color: #db3725;
 	color: white;
 	font-family: 'Slabo 27px', serif;
 }

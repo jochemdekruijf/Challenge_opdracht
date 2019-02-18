@@ -45,6 +45,14 @@ function alertNotification(alertArgument) {
         document.getElementById('added2order').style.display = "none";
         }, 900);
     }
+    if (alertArgument === 'error') {
+
+        console.log('show notification: create own');
+        document.getElementById('added2orderError').style.display = "block";
+        setTimeout(function() {
+        document.getElementById('added2orderError').style.display = "none";
+        }, 2000);
+    }
 
 }
 
@@ -339,7 +347,7 @@ function order() {
         console.log('order added to dataOrder');
     } else {
 
-        alert('selecteer minimaal een saus, als u geen saus kiest is het standaard normaal');
+        alertNotification('error');
     }
 
 }
