@@ -1,3 +1,5 @@
+
+
 var dataOrder = []; // bestelling array, houdt de bestelling bij
 var price = 5; // houdt de prijs van zelfgemaakte pizza bij
 var globalPrice = 0; // globale bestelling prijs
@@ -6,7 +8,7 @@ var toppingBoolean = [false, false, false, false, false, false]; //booleans voor
 var added_toppings = []; // array waar de geselcteerde toppings in worden gezet
 var base = 0; //houdt het aantal toppings bij 
 var selectIngredient = false; //controleert of je een ingrediënt geselecteerd hebt
-var ingredientCheck = false;  //controleert in de order functie of je iets geselecteerd had
+var ingredientCheck = false; //controleert in de order functie of je iets geselecteerd had
 var discount = false; //controleert of de korting al gegeven is
 var selectSizeBoolean = false; // controleert of de korting al gegeven is
 var ordered = false; //controleert of je iets besteld hebt
@@ -15,9 +17,9 @@ var sauceBoolean = false; //controleert of er een saus geselecteerd is
 var size = false; // controleer of je een formaat gekozen hebt
 
 
-            //---algemeen---\\
+//---algemeen---\\
 
- //display and update the price
+//display and update the price
 function displayPrice() {
 
     var number = price;
@@ -26,39 +28,47 @@ function displayPrice() {
     document.getElementById("orderlist").innerHTML = "€" + gPrice;
     console.log('price updated');
 }
- //alert notification function by argument
+//alert notification function by argument
 function alertNotification(alertArgument) {
 
     if (alertArgument === 'menuAlert') {
 
         console.log('show notification: menu');
         document.getElementById('fromMenu').style.display = "block";
-        setTimeout(function() {
-        document.getElementById('fromMenu').style.display = "none";
+        setTimeout(function () {
+            document.getElementById('fromMenu').style.display = "none";
         }, 900);
     }
     if (alertArgument === 'added2order') {
 
         console.log('show notification: create own');
         document.getElementById('added2order').style.display = "block";
-        setTimeout(function() {
-        document.getElementById('added2order').style.display = "none";
+        setTimeout(function () {
+            document.getElementById('added2order').style.display = "none";
         }, 900);
     }
-    if (alertArgument === 'error') {
+    if (alertArgument === 'errorCO') {
 
         console.log('show notification: create own');
         document.getElementById('added2orderError').style.display = "block";
-        setTimeout(function() {
-        document.getElementById('added2orderError').style.display = "none";
+        setTimeout(function () {
+            document.getElementById('added2orderError').style.display = "none";
+        }, 2000);
+    }
+    if (alertArgument === 'orderError') {
+
+        console.log('show notification: create own');
+        document.getElementById('orderError').style.display = "block";
+        setTimeout(function () {
+            document.getElementById('orderError').style.display = "none";
         }, 2000);
     }
 
 }
 
-                //---menu---\\
+//---menu---\\
 
-  // voegt de pizza toe aan de bestelling
+// voegt de pizza toe aan de bestelling
 function addFromMenu(pizza) {
 
     if (pizza === "margerita") {
@@ -122,8 +132,8 @@ function addFromMenu(pizza) {
     showOrder();
 
 }
-         //---zelgemaakte pizza---\\
- // functie bepaalt de pizza grootte
+//---zelgemaakte pizza---\\
+// functie bepaalt de pizza grootte
 function selectedSize(selected) {
 
 
@@ -168,7 +178,7 @@ function selectedSize(selected) {
     displayPrice();
 }
 
- // bepaalt welke saus of geen saus
+// bepaalt welke saus of geen saus
 function Sauce(sauce) {
 
 
@@ -206,7 +216,7 @@ function Sauce(sauce) {
     displayToppings();
     displayPrice();
 }
- // voegt de ingredienten toe aan de toppings array
+// voegt de ingredienten toe aan de toppings array
 function addIngredient(ingredient) {
 
     if (ingredient === "cheese" && toppingBoolean[0] === false) {
@@ -278,7 +288,7 @@ function addIngredient(ingredient) {
     displayPrice();
     displayToppings();
 }
- // update de toppings lijst
+// update de toppings lijst
 function displayToppings() {
 
     document.getElementById("toppings").innerHTML = "gekozen beleg: ";
@@ -319,9 +329,9 @@ function reset() {
     console.log('create Own has been reset');
 }
 
-        //---bestelling---\\
-     // update de bestelling   
- function showOrder() {
+//---bestelling---\\
+// update de bestelling   
+function showOrder() {
 
     for (var i = 0; i < dataOrder.length; i++) {
 
@@ -332,26 +342,25 @@ function reset() {
         document.getElementById("orderlist").appendChild(listItemOrder);
         console.log('order updated');
     }
-}       
- //bevestigt de bestelling 
+}
+//bevestigt de bestelling van de zelfgemaakte pizza
 function order() {
     if (ingredientCheck === true) {
         ordered = true;
         globalPrice = globalPrice + price;
         dataOrder.push(added_toppings);
         reset();
-        displayPrice();
-        displayToppings();
-        showOrder();
         alertNotification('added2order');
         console.log('order added to dataOrder');
     } else {
 
-        alertNotification('error');
+        alertNotification('errorCO');
     }
-
+  displayToppings();  
+  displayPrice();
+  showOrder();
 }
- // bepaalt de betaalmethode
+// bepaalt de betaalmethode
 function payBy(method) {
 
     if (method === 'bank' && discount === false && ordered === true) {
@@ -367,11 +376,16 @@ function payBy(method) {
         document.getElementById("bank").style.display = "none";
         console.log('pay by cash selected');
     }
+    if (ordered === false) {
+
+        alertNotification('orderError');
+
+    }
 
     displayPrice();
     showOrder();
 }
- // bepaalt of je het wilt ophalen of laten bezorgen
+// bepaalt of je het wilt ophalen of laten bezorgen
 function method(method) {
 
     if (method === 'deliver' && del_fee === false && ordered === true) {
@@ -386,8 +400,13 @@ function method(method) {
 
         document.getElementById("deliver").style.display = "none";
         console.log(' selected method  is takeaway');
+    }
 
+    if (ordered === false) {
+
+        alertNotification('orderError');
     }
     displayPrice();
     showOrder();
 }
+

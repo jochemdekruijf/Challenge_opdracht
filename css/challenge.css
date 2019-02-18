@@ -1,9 +1,5 @@
 
 
-* {
-	font-family: 'Slabo 27px', serif;
-}
-
 #pizza0,
 #pizza1,
 #pizza2,
@@ -68,7 +64,8 @@ button {
 
 #fromMenu,
 #added2order,
-#added2orderError {
+#added2orderError,
+#orderError {
 	display: none;
 }
 
@@ -76,13 +73,12 @@ button {
 	padding: 20px;
 	background-color: #4CAF50;
 	color: white;
-	font-family: 'Slabo 27px', serif;
 }
+
 .alertError {
 	padding: 20px;
 	background-color: #db3725;
 	color: white;
-	font-family: 'Slabo 27px', serif;
 }
 
 .closebtn {

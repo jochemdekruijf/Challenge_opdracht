@@ -1,10 +1,11 @@
+
+
 <!DOCTYPE html>
 <html>
    <title>Pizza Reastaurant</title>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-   <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
    <link rel="stylesheet" href="css/challenge.css">
    <link rel="icon" type="image/png" href="images/favicon.png">
    <script type="text/javascript" src="js/pizzaCalc.js"></script>
@@ -49,27 +50,27 @@
                <h1>Pizza's</h1>
                <div id="displayPizza">
                   <div class="menu">
-                     <h3>Magerita</h3>
+                     <h3>Magerita €10.50 </h3>
                      <img id="pizza0" src="images/margerita.png" alt="margeritha" onclick="addFromMenu('margerita');">
                   </div>
                   <div class="menu">
-                     <h3>Hawaii</h3>
+                     <h3>Hawaii €11.50 </h3>
                      <img id="pizza1" src="images/hawaii.png" alt="hawaii" onclick="addFromMenu('hawaii')">
                   </div>
                   <div class="menu">
-                     <h3>Salami</h3>
+                     <h3>Salami €10.50 </h3>
                      <img id="pizza2" src="images/salami.png" alt="salami" onclick="addFromMenu('salami')">
                   </div>
                   <div class="menu">
-                     <h3>Funghi</h3>
+                     <h3>Funghi €13.50 </h3>
                      <img id="pizza3" src="images/funghi.png" alt="funghi" onclick="addFromMenu('funghi')">
                   </div>
                   <div class="menu">
-                     <h3>Quattro formaggi</h3>
+                     <h3>Quattro formaggi €14.50 </h3>
                      <img id="pizza4" src="images/quattro-formaggi.png" alt="quattro_formaggi" onclick="addFromMenu('quattro-formaggi');">
                   </div>
                   <div class="menu">
-                     <h3>Vegetarian</h3>
+                     <h3>Vegetarian €10 </h3>
                      <img id="pizza5" src="images/vegetarian.png" alt="vegetarian"  onclick="addFromMenu('vegetarian');">
                   </div>
                </div>
@@ -87,12 +88,12 @@
                   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
                   <strong>Succes!</strong> De zelfgemaakte pizza is toegevoegd
                </div>
-              </div> 
+            </div>
             <div id="added2orderError">
                <div class="alertError" >
                   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
                   <strong>Failed!</strong> selecteer minimaal een saus, als u geen formaat kiest is het standaard normaal
-               </div>               
+               </div>
             </div>
             <div class="w3-container">
                <img src="images/createOwn_imgs/bodem.jpeg" id="bodem" alt="pizza_bodem"  style= "width: 300px; height: 300px;" >
@@ -135,6 +136,12 @@
                <h1>bestelling</h1>
             </div>
             <div class="w3-container">
+               <div id="orderError">
+                  <div class="alertError" >
+                     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                     <strong>Failed!</strong> bestel eerst iets voordat je een betaal- of verzendmethode selecteert
+                  </div>
+               </div>
                <ul id="orderlist">
                   <script>
                      displayPrice();
